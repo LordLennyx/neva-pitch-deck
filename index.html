@@ -140,16 +140,16 @@ body:hover .nav,.nav:focus-within{opacity:1}
   <h2 class="r">Au marché, <em>4 cagettes sur 10</em> partent à la poubelle avant d'être vendues.</h2>
   <div class="g3">
     <div class="cardx r"><b>40 %</b><p>des fruits et légumes perdus entre la récolte et l'assiette, faute de froid.</p></div>
-    <div class="cardx r"><b>3 200 F</b><p>perdus chaque jour par une vendeuse de tomates, soit un tiers de sa marge.</p></div>
+    <div class="cardx r"><b>5 €</b><p>perdus chaque jour par une vendeuse de tomates, soit un tiers de sa marge.</p></div>
     <div class="cardx r"><b>0</b><p>chambre froide accessible dans les 14 grands marchés de Douala et Yaoundé.</p></div>
   </div>
   <div class="lg"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#0b8ba3" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
 </section>
 
-<section class="s dk" data-n="Le mot clé : à la cagette. Pas d'investissement pour la vendeuse, pas d'abonnement. Elle paie 150 F par jour par Mobile Money, comme un ticket de parking.">
+<section class="s dk" data-n="Le mot clé : à la cagette. Pas d'investissement pour la vendeuse, pas d'abonnement. Elle paie 0,25 € par jour depuis l'appli, comme un ticket de parking.">
   <div class="k r">02 <i>La solution</i></div>
-  <h2 class="r">Une chambre froide de quartier, <em>louée à la cagette</em>, 150 F la journée.</h2>
-  <p class="lead r">Nos conteneurs de 20 pieds, alimentés à 100 % par le soleil, gardent les produits entre 4 et 8 °C. Les vendeuses déposent le soir, récupèrent le matin, et paient par Mobile Money.</p>
+  <h2 class="r">Une chambre froide de quartier, <em>louée à la cagette</em>, 0,25 € la journée.</h2>
+  <p class="lead r">Nos conteneurs de 20 pieds, alimentés à 100 % par le soleil, gardent les produits entre 4 et 8 °C. Les vendeuses déposent le soir, récupèrent le matin, et paient depuis l'appli.</p>
   <div class="g3">
     <div class="cardx r"><b>×3</b><p>durée de conservation des tomates, piments et légumes-feuilles.</p></div>
     <div class="cardx r"><b>24 h</b><p>d'autonomie sans soleil grâce au stockage thermique, sans batterie lithium.</p></div>
@@ -229,7 +229,7 @@ body:hover .nav,.nav:focus-within{opacity:1}
   <h2 class="r">Une unité est <em>rentabilisée en 19 mois</em>.</h2>
   <div class="g3">
     <div class="cardx r"><b>1 010 €</b><p>de revenu mensuel par unité (320 cagettes, 80 % de remplissage, 26 jours)</p></div>
-    <div class="cardx r"><b>64 %</b><p>de marge brute : gardien, maintenance, frais Mobile Money et assurance déduits</p></div>
+    <div class="cardx r"><b>64 %</b><p>de marge brute : gardien, maintenance, frais de paiement et assurance déduits</p></div>
     <div class="cardx r"><b>+ 2</b><p>revenus additionnels : livraison à froid pour restaurants et prévisions de prix pour grossistes</p></div>
   </div>
   <div class="lg" style="color:#f3efe6"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#7cc6fe" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
@@ -288,7 +288,7 @@ body:hover .nav,.nav:focus-within{opacity:1}
   <svg class="flake" viewBox="0 0 400 400" aria-hidden="true" style="opacity:.5"><g stroke="#7cc6fe" stroke-width="7" stroke-linecap="round" fill="none"><path d="M200 60v280M79 130l242 140M321 130L79 270"/></g></svg>
   <div class="k r">Merci</div>
   <h1 class="r" style="font-size:110px">Venez voir le froid<br>arriver au marché.</h1>
-  <div class="meta r"><span><b>Chantal Ekambi, CEO</b>chantal@neva.africa</span><span><b>Téléphone</b>+237 6 77 00 41 22</span><span><b>Data room</b>neva.africa/investir</span></div>
+  <div class="meta r"><span><b>Chantal Ekambi, CEO</b>chantal@neva.africa</span><span><b>Téléphone</b>+33 6 77 00 41 22</span><span><b>Data room</b>neva.africa/investir</span></div>
 </section>
 
 </div></div>
@@ -314,10 +314,10 @@ function ov(){const on=document.body.classList.toggle('ov');if(!on)return;const 
 $('#ovB').onclick=ov;
 let t0=Date.now();setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);$('#tm').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000);
 // ——— Graphiques (une seule série par graphique, valeurs annotées) ———
-(function(){const d=[['mars',.6],['avr.',1.1],['mai',1.5],['juin',1.7],['juil.',2.6],['août',3.4],['sept.',3.9],['oct.',4.4]],W=900,H=380,b=330,max=5,bw=70,gap=(W-40-d.length*bw)/(d.length-1);
-  let o=[1,2,3,4].map(v=>`<line x1="0" x2="${W}" y1="${b-v/max*290}" y2="${b-v/max*290}" stroke="#ddd7ca" stroke-dasharray="3 6"/>`).join('');
-  d.forEach(([m,v],i)=>{const x=20+i*(bw+gap),h=v/max*290;o+=`<path d="M${x} ${b}V${b-h+4}a4 4 0 0 1 4-4h${bw-8}a4 4 0 0 1 4 4V${b}Z" fill="${i<4?'#e8b9a3':'#d9480f'}"><title>${m} : ${String(v).replace('.',',')} M F CFA</title></path><text x="${x+bw/2}" y="${b+30}" text-anchor="middle">${m}</text>`;if(i===0||i===3||i===d.length-1)o+=`<text class="vl" x="${x+bw/2}" y="${b-h-12}" text-anchor="middle">${String(v).replace('.',',')} M</text>`});
-  o+=`<line x1="0" x2="${W}" y1="${b}" y2="${b}" stroke="#101418" stroke-width="1.5"/><text x="${20+4*(bw+gap)}" y="22" style="fill:#d9480f;font-weight:600">2ᵉ unité installée →</text><text x="0" y="22">Revenu mensuel, millions de F CFA</text>`;
+(function(){const d=[['mars',.9],['avr.',1.7],['mai',2.3],['juin',2.6],['juil.',4],['août',5.2],['sept.',5.9],['oct.',6.7]],W=900,H=380,b=330,max=8,bw=70,gap=(W-40-d.length*bw)/(d.length-1);
+  let o=[2,4,6].map(v=>`<line x1="0" x2="${W}" y1="${b-v/max*290}" y2="${b-v/max*290}" stroke="#ddd7ca" stroke-dasharray="3 6"/>`).join('');
+  d.forEach(([m,v],i)=>{const x=20+i*(bw+gap),h=v/max*290;o+=`<path d="M${x} ${b}V${b-h+4}a4 4 0 0 1 4-4h${bw-8}a4 4 0 0 1 4 4V${b}Z" fill="${i<4?'#e8b9a3':'#d9480f'}"><title>${m} : ${String(v).replace('.',',')}  k€</title></path><text x="${x+bw/2}" y="${b+30}" text-anchor="middle">${m}</text>`;if(i===0||i===3||i===d.length-1)o+=`<text class="vl" x="${x+bw/2}" y="${b-h-12}" text-anchor="middle">${String(v).replace('.',',')} M</text>`});
+  o+=`<line x1="0" x2="${W}" y1="${b}" y2="${b}" stroke="#101418" stroke-width="1.5"/><text x="${20+4*(bw+gap)}" y="22" style="fill:#d9480f;font-weight:600">2ᵉ unité installée →</text><text x="0" y="22">Revenu mensuel, milliers d'euros</text>`;
   $('#ch1').innerHTML=o})();
 (function(){const d=[['2026',2,.02],['2027',18,.19],['2028',62,.68],['2029',140,1.6]],W=1380,b=360,colW=W/4;
   let o=`<line x1="0" x2="${W}" y1="${b}" y2="${b}" stroke="#101418" stroke-width="1.5"/>`;
