@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Neva — Pitch deck, levée d'amorçage</title>
+<meta name="description" content="Pitch deck investisseurs de Neva, chambres froides solaires payées à la caisse pour les marchés d'Afrique centrale. Présentation web, mode présentateur, export PDF.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101418'/%3E%3Cpath d='M16 7v18M8 11.5l16 9M24 11.5l-16 9' stroke='%237cc6fe' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--cream:#f3efe6;--ink:#101418;--sun:#d9480f;--ice:#0b8ba3;--ice2:#7cc6fe;--mute:#6b6b66;--line:#ddd7ca}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden;background:#1a1d21}
+body{font:400 24px/1.4 'Onest',system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.stage{position:fixed;inset:0;display:grid;place-items:center}
+.deck{width:1600px;height:900px;position:relative;transform-origin:center}
+.s{position:absolute;inset:0;background:var(--cream);padding:90px 110px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;overflow:hidden}
+.s.on{opacity:1;visibility:visible}
+.s.dk{background:var(--ink);color:#f3efe6}
+.s .k{font:500 15px 'Unbounded';letter-spacing:.14em;text-transform:uppercase;color:var(--sun);margin-bottom:26px;display:flex;gap:16px}
+.s .k i{font-style:normal;color:var(--mute)}
+.s h1,.s h2{font-family:'Unbounded';font-weight:500;letter-spacing:-.035em}
+.s h2{font-size:64px;line-height:1.04;max-width:1200px}
+.s h2 em{font-style:normal;color:var(--sun)}
+.s .lead{font-size:28px;color:#4a4a45;max-width:900px;margin-top:26px}
+.dk .lead{color:#b5b3ab}
+.pg{position:absolute;bottom:42px;right:110px;font:500 14px 'Unbounded';color:var(--mute)}
+.lg{position:absolute;bottom:40px;left:110px;font:700 16px 'Unbounded';letter-spacing:-.04em;display:flex;align-items:center;gap:8px}
+.lg svg{width:22px;height:22px}
+/* rythme d'entrée */
+.s.on .r{animation:up .7s cubic-bezier(.2,.8,.2,1) both}
+.s.on .r:nth-child(2){animation-delay:.08s}.s.on .r:nth-child(3){animation-delay:.16s}.s.on .r:nth-child(4){animation-delay:.24s}.s.on .r:nth-child(5){animation-delay:.32s}
+@keyframes up{from{opacity:0;transform:translateY(24px)}}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:auto}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:60px;flex:1;align-items:center}
+.cardx{border-top:2px solid var(--ink);padding-top:22px}
+.dk .cardx{border-color:#f3efe6}
+.cardx b{font:500 64px/1 'Unbounded';letter-spacing:-.04em;display:block;margin-bottom:12px}
+.cardx p{font-size:21px;color:#55554f}.dk .cardx p{color:#a9a79f}
+.num{font:500 30px 'Unbounded';color:var(--sun)}
+/* couverture */
+.cover h1{font-size:168px;line-height:.9;letter-spacing:-.06em;margin-top:auto}
+.cover .tag{font-size:34px;max-width:900px;margin-top:30px;color:#c8c6be}
+.cover .meta{display:flex;gap:50px;margin-top:60px;font-size:18px;color:#8d8b84}
+.cover .meta b{display:block;color:#f3efe6;font-weight:500;font-size:20px}
+.flake{position:absolute;right:-120px;top:-60px;width:820px;height:820px;opacity:.95}
+/* étapes */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:auto;border-top:2px solid var(--ink)}
+.steps div{padding:26px 26px 0 0;position:relative}
+.steps div::before{content:"";position:absolute;top:-9px;left:0;width:16px;height:16px;border-radius:50%;background:var(--sun)}
+.steps h3{font:500 26px 'Unbounded';letter-spacing:-.03em;margin:12px 0 8px}
+.steps p{font-size:20px;color:#55554f}
+/* produit */
+.room{width:100%;height:auto}
+.spec{display:grid;gap:18px}
+.spec div{display:flex;justify-content:space-between;border-bottom:1px solid #2c3138;padding-bottom:14px;font-size:22px}
+.spec b{font-weight:600}
+/* marché */
+.circles{position:relative;width:560px;height:560px}
+.circles div{position:absolute;border-radius:50%;left:50%;bottom:0;transform:translateX(-50%);display:flex;justify-content:center;padding-top:26px;font:500 18px 'Unbounded'}
+.circles div span{display:block;text-align:center}.circles div small{display:block;font:400 16px 'Onest';opacity:.75;margin-top:4px}
+/* graphique */
+.chart{width:100%;height:auto;overflow:visible}
+.chart text{font:400 17px 'Onest';fill:#6b6b66}
+.chart .vl{font:600 18px 'Onest';fill:var(--ink)}
+.dk .chart text{fill:#8d8b84}.dk .chart .vl{fill:#f3efe6}
+/* concurrence */
+.mx{position:relative;width:640px;height:420px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.mx .ax{position:absolute;font-size:16px;color:var(--mute)}
+.mx .pt{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;font-size:19px;white-space:nowrap}
+.mx .pt i{width:16px;height:16px;border-radius:50%;background:#bdb6a6;flex:none}
+.mx .pt.us i{width:26px;height:26px;background:var(--sun);box-shadow:0 0 0 8px #d9480f26}
+.mx .pt.us{font-weight:600}
+table.cmp{border-collapse:collapse;font-size:20px;width:100%}
+.cmp td,.cmp th{padding:12px 10px;border-bottom:1px solid var(--line);text-align:center}
+.cmp th{font:500 14px 'Unbounded';color:var(--mute);letter-spacing:.06em}
+.cmp td:first-child,.cmp th:first-child{text-align:left}
+.cmp .y,.cmp .n{font-size:28px;line-height:1}.cmp .y{color:var(--ice)}.cmp .n{color:#bdb6a6}
+.cmp tr.us td{background:#fff;font-weight:600}
+/* équipe */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:auto}
+.av{width:120px;height:120px;border-radius:50%;margin-bottom:18px;display:grid;place-items:center;font:500 34px 'Unbounded';color:#fff}
+.team h3{font:500 24px 'Unbounded';letter-spacing:-.03em}
+.team .role{color:var(--sun);font-size:18px;margin:4px 0 10px;font-weight:600}
+.team p{font-size:18px;color:#55554f}
+/* levée */
+.ask{font:500 190px/.9 'Unbounded';letter-spacing:-.06em;color:var(--sun)}
+.funds{display:flex;height:64px;border-radius:12px;overflow:hidden;gap:3px;margin:30px 0 18px}
+.funds div{display:flex;align-items:center;padding-left:16px;font:600 18px 'Onest';color:#fff}
+.fl{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;font-size:19px}
+.fl i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:8px;vertical-align:-1px}
+.fl b{display:block;font:500 28px 'Unbounded';margin-top:4px}
+/* interface */
+.ui{position:fixed;left:0;right:0;bottom:0;height:4px;background:#ffffff14;z-index:5}
+.ui i{display:block;height:100%;background:var(--sun);transition:width .4s}
+.nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:6px;background:#101418e6;padding:6px;border-radius:14px;z-index:6;opacity:0;transition:.3s;backdrop-filter:blur(8px)}
+body:hover .nav,.nav:focus-within{opacity:1}
+.nav button{background:none;border:0;color:#f3efe6;font:500 14px 'Onest';padding:9px 13px;border-radius:9px;cursor:pointer}
+.nav button:hover{background:#ffffff1a}
+.notes{position:fixed;right:16px;top:16px;width:380px;background:#101418f2;color:#e8e6df;border-radius:16px;padding:20px;font-size:16px;line-height:1.55;z-index:7;display:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.notes.on{display:block}
+.notes h4{font:500 12px 'Unbounded';letter-spacing:.14em;color:var(--sun);margin-bottom:8px;display:flex;justify-content:space-between}
+.notes .clock{font:500 28px 'Unbounded';margin:10px 0 0;color:#fff}
+.ov .deck{display:none}
+.grid{position:fixed;inset:0;overflow:auto;padding:40px;display:none;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;z-index:8;background:#1a1d21}
+.ov .grid{display:grid}
+.grid button{border:0;padding:0;background:none;cursor:pointer;text-align:left;color:#c8c6be;font:500 14px 'Onest'}
+.grid .th{aspect-ratio:16/9;border-radius:10px;overflow:hidden;position:relative;margin-bottom:8px;outline:2px solid transparent;outline-offset:3px}
+.grid button.cur .th{outline-color:var(--sun)}
+.grid .th>div{position:absolute;left:0;top:0;width:1600px;height:900px;transform-origin:0 0}
+.grid .th .s{opacity:1;visibility:visible;transition:none}
+.grid .th .s *{animation:none!important}
+.help{position:fixed;left:16px;top:16px;color:#8d8b84;font:400 13px 'Onest';z-index:4;transition:opacity .6s}.help.off{opacity:0}
+@media print{
+  @page{size:1600px 900px;margin:0}
+  html,body{overflow:visible;height:auto;background:#fff}
+  .stage{position:static;display:block}.deck{transform:none!important;width:auto;height:auto}
+  .s{position:relative;opacity:1;visibility:visible;width:1600px;height:900px;page-break-after:always;break-after:page}
+  .s *{animation:none!important}
+  .ui,.nav,.notes,.grid,.help{display:none!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="help" id="help">← → pour naviguer · O vue d'ensemble · N notes · F plein écran</div>
+<div class="stage"><div class="deck" id="deck">
+
+<section class="s dk cover" data-n="Ouvrir sur l'image du marché de Mboppi à 15 h : les tomates du matin sont déjà perdues. 20 secondes maximum.">
+  <svg class="flake" viewBox="0 0 400 400" aria-hidden="true"><defs><radialGradient id="sunG" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#d9480f"/><stop offset="1" stop-color="#d9480f" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="190" fill="url(#sunG)" opacity=".55"/><g stroke="#7cc6fe" stroke-width="7" stroke-linecap="round" fill="none"><path d="M200 60v280M79 130l242 140M321 130L79 270"/><path d="M200 60l-26 26M200 60l26 26M200 340l-26-26M200 340l26-26M79 130l35 9M79 130l9 35M321 270l-35-9M321 270l-9-35M321 130l-35 9M321 130l-9 35M79 270l35-9M79 270l9-35"/></g></svg>
+  <div class="k r">Levée d'amorçage · novembre 2026</div>
+  <h1 class="r">neva</h1>
+  <p class="tag r">Des chambres froides solaires, payées à la caisse, au cœur des marchés d'Afrique centrale.</p>
+  <div class="meta r"><span><b>Recherché</b>650 000 €</span><span><b>Siège</b>Douala, Cameroun</span><span><b>Contact</b>fondateurs@neva.africa</span></div>
+</section>
+
+<section class="s" data-n="Chiffre FAO pour l'Afrique subsaharienne. Insister : ce n'est pas un problème de production, c'est un problème de froid. Citer Maman Odile, vendeuse de tomates depuis 22 ans.">
+  <div class="k r">01 <i>Le problème</i></div>
+  <h2 class="r">Au marché, <em>4 cagettes sur 10</em> partent à la poubelle avant d'être vendues.</h2>
+  <div class="g3">
+    <div class="cardx r"><b>40 %</b><p>des fruits et légumes perdus entre la récolte et l'assiette, faute de froid.</p></div>
+    <div class="cardx r"><b>3 200 F</b><p>perdus chaque jour par une vendeuse de tomates, soit un tiers de sa marge.</p></div>
+    <div class="cardx r"><b>0</b><p>chambre froide accessible dans les 14 grands marchés de Douala et Yaoundé.</p></div>
+  </div>
+  <div class="lg"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#0b8ba3" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s dk" data-n="Le mot clé : à la cagette. Pas d'investissement pour la vendeuse, pas d'abonnement. Elle paie 150 F par jour par Mobile Money, comme un ticket de parking.">
+  <div class="k r">02 <i>La solution</i></div>
+  <h2 class="r">Une chambre froide de quartier, <em>louée à la cagette</em>, 150 F la journée.</h2>
+  <p class="lead r">Nos conteneurs de 20 pieds, alimentés à 100 % par le soleil, gardent les produits entre 4 et 8 °C. Les vendeuses déposent le soir, récupèrent le matin, et paient par Mobile Money.</p>
+  <div class="g3">
+    <div class="cardx r"><b>×3</b><p>durée de conservation des tomates, piments et légumes-feuilles.</p></div>
+    <div class="cardx r"><b>24 h</b><p>d'autonomie sans soleil grâce au stockage thermique, sans batterie lithium.</p></div>
+    <div class="cardx r"><b>0 l</b><p>de gasoil : aucun groupe électrogène, aucun bruit.</p></div>
+  </div>
+  <div class="lg" style="color:#f3efe6"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#7cc6fe" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s" data-n="Montrer que tout passe par le téléphone. Le badge NFC est important pour les vendeuses qui n'ont pas de smartphone : 38 % de nos utilisatrices.">
+  <div class="k r">03 <i>Comment ça marche</i></div>
+  <h2 class="r">Quatre gestes, <em>aucun papier</em>.</h2>
+  <div class="steps r">
+    <div><span class="num">1</span><h3>Je réserve</h3><p>Par USSD (#150*88#), WhatsApp ou l'appli : nombre de cagettes, durée.</p></div>
+    <div><span class="num">2</span><h3>Je paie</h3><p>Orange Money ou MTN MoMo. Le crédit apparaît sur mon badge.</p></div>
+    <div><span class="num">3</span><h3>Je dépose</h3><p>Le gardien scanne le badge, une étiquette suit chaque cagette.</p></div>
+    <div><span class="num">4</span><h3>Je récupère</h3><p>À toute heure. Un SMS m'alerte si la température dérive.</p></div>
+  </div>
+  <div class="lg"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#0b8ba3" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s dk" data-n="Fabrication locale à Bonabéri : 60 % de la valeur ajoutée au Cameroun. Coût de revient 18 500 € contre 32 000 € importé.">
+  <div class="k r">04 <i>Le produit</i></div>
+  <div class="g2">
+    <svg class="room r" viewBox="0 0 640 420" role="img" aria-label="Conteneur Neva avec panneaux solaires">
+      <g transform="translate(40 40)"><g fill="#1f2a33" stroke="#7cc6fe" stroke-width="2"><path d="M40 70L280 0L560 60L320 130Z" fill="#14202a"/></g>
+      
+      <path d="M40 70L280 0L560 60L320 130Z" fill="url(#pv)"/>
+      <defs><pattern id="pv" width="40" height="22" patternUnits="userSpaceOnUse" patternTransform="skewX(-30)"><rect width="40" height="22" fill="#1b3a57"/><path d="M0 0H40M0 0V22" stroke="#7cc6fe" stroke-opacity=".55" stroke-width="2"/></pattern></defs>
+      <path d="M60 110L320 180V340L60 270Z" fill="#e8e3d6"/><path d="M320 180L540 110V270L320 340Z" fill="#cfc8b8"/><path d="M60 110L280 45L540 110L320 180Z" fill="#f3efe6"/>
+      
+      <path d="M80 130V265M100 136V271M120 141V277M140 147V282M160 152V288M180 158V293M200 163V299M220 169V304M240 174V310M260 180V315M280 185V321M300 190V326" stroke="#c9c1ae" stroke-width="3"/>
+      <rect x="380" y="170" width="110" height="130" fill="#101418" transform="skewY(-17.5)" rx="4"/>
+      <g transform="translate(395 175) skewY(-17.5)"><rect width="80" height="34" rx="4" fill="#0b8ba3"/><text x="40" y="23" text-anchor="middle" font-family="Unbounded" font-size="15" fill="#fff">5,8 °C</text></g>
+      <path d="M40 70V100M560 60V100M320 130V170" stroke="#7cc6fe" stroke-width="3"/>
+      <circle cx="520" cy="-10" r="34" fill="#d9480f"/></g>
+    </svg>
+    <div class="spec r">
+      <div><span>Capacité</span><b>320 cagettes</b></div>
+      <div><span>Température</span><b>4 à 8 °C, réglable</b></div>
+      <div><span>Énergie</span><b>6,4 kWc solaire</b></div>
+      <div><span>Autonomie de nuit</span><b>24 h (glace eutectique)</b></div>
+      <div><span>Suivi</span><b>Capteurs IoT, alertes SMS</b></div>
+      <div><span>Coût de fabrication</span><b>18 500 €</b></div>
+    </div>
+  </div>
+  <div class="lg" style="color:#f3efe6"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#7cc6fe" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s" data-n="Approche ascendante : 186 marchés de plus de 500 vendeurs en zone CEMAC, 60 % de vendeurs de produits frais, 250 jours par an.">
+  <div class="k r">05 <i>Le marché</i></div>
+  <div class="g2" style="grid-template-columns:1.05fr 1fr">
+    <div><h2 class="r" style="font-size:56px">Un marché de <em>412 M€</em> par an, rien qu'en zone CEMAC.</h2><p class="lead r">Calcul ascendant : nombre de marchés, vendeurs de produits frais, cagettes par vendeur et prix moyen. Hypothèses détaillées en annexe.</p></div>
+    <div class="circles r">
+      <div style="width:560px;height:560px;background:#e6dfd0"><span>412 M€<small>CEMAC · 186 marchés</small></span></div>
+      <div style="width:380px;height:380px;background:#0b8ba3;color:#fff"><span>96 M€<small>Cameroun</small></span></div>
+      <div style="width:210px;height:210px;background:#d9480f;color:#fff"><span>14 M€<small>Douala + Yaoundé<br>objectif 2029</small></span></div>
+    </div>
+  </div>
+  <div class="lg"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#0b8ba3" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s" data-n="Pilote lancé en mars au marché de Mboppi, deuxième unité à Sandaga en juillet. Taux de remplissage moyen 87 % sur octobre. Rétention mensuelle des vendeuses : 91 %.">
+  <div class="k r">06 <i>Traction</i></div>
+  <h2 class="r" style="font-size:56px">8 mois de pilote, <em>2 unités pleines</em>, 412 vendeuses.</h2>
+  <div class="g2" style="grid-template-columns:1.6fr 1fr;align-items:end">
+    <svg class="chart r" id="ch1" viewBox="0 0 900 380" role="img" aria-label="Revenu mensuel du pilote, de mars à octobre 2026"></svg>
+    <div class="g3" style="grid-template-columns:1fr;gap:22px">
+      <div class="cardx"><b style="font-size:48px">87 %</b><p>taux de remplissage en octobre</p></div>
+      <div class="cardx"><b style="font-size:48px">91 %</b><p>des vendeuses reviennent le mois suivant</p></div>
+    </div>
+  </div>
+  <div class="lg"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#0b8ba3" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s dk" data-n="Amortissement d'une unité en 19 mois à 80 % de remplissage. La marge brute monte à 71 % avec la publicité et les données vendues aux grossistes.">
+  <div class="k r">07 <i>Modèle économique</i></div>
+  <h2 class="r">Une unité est <em>rentabilisée en 19 mois</em>.</h2>
+  <div class="g3">
+    <div class="cardx r"><b>1 010 €</b><p>de revenu mensuel par unité (320 cagettes, 80 % de remplissage, 26 jours)</p></div>
+    <div class="cardx r"><b>64 %</b><p>de marge brute : gardien, maintenance, frais Mobile Money et assurance déduits</p></div>
+    <div class="cardx r"><b>+ 2</b><p>revenus additionnels : livraison à froid pour restaurants et prévisions de prix pour grossistes</p></div>
+  </div>
+  <div class="lg" style="color:#f3efe6"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#7cc6fe" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s" data-n="Les concurrents servent les producteurs en zone rurale ou les grandes surfaces. Personne ne sert le dernier kilomètre : la vendeuse au marché.">
+  <div class="k r">08 <i>Concurrence</i></div>
+  <h2 class="r" style="font-size:50px">Personne ne sert <em>le dernier kilomètre</em> : la vendeuse.</h2>
+  <div class="g2" style="grid-template-columns:1fr 1fr;gap:70px">
+    <div class="mx r">
+      <span class="ax" style="left:-10px;top:-34px">Accessible à une vendeuse</span><span class="ax" style="right:0;bottom:-34px">Implanté en ville</span>
+      <div class="pt us" style="left:84%;top:16%"><i></i>Neva</div>
+      <div class="pt" style="left:20%;top:30%"><i></i>Chambres rurales (Nigeria)</div>
+      <div class="pt" style="left:30%;top:72%"><i></i>Glacières individuelles</div>
+      <div class="pt" style="left:74%;top:80%"><i></i>Entrepôts frigorifiques</div>
+      <div class="pt" style="left:56%;top:52%"><i></i>Congélateurs à gasoil</div>
+    </div>
+    <table class="cmp r"><tr><th></th><th>Solaire</th><th>À la cagette</th><th>En ville</th><th>Suivi</th></tr>
+      <tr class="us"><td>Neva</td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="y">●</td></tr>
+      <tr><td>Chambres rurales</td><td class="y">●</td><td class="y">●</td><td class="n">○</td><td class="y">●</td></tr>
+      <tr><td>Entrepôts</td><td class="n">○</td><td class="n">○</td><td class="y">●</td><td class="y">●</td></tr>
+      <tr><td>Congélateurs</td><td class="n">○</td><td class="n">○</td><td class="y">●</td><td class="n">○</td></tr></table>
+  </div>
+  <div class="lg"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#0b8ba3" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s" data-n="Trois fondateurs complémentaires, tous à temps plein. Ajouter : advisory board avec une ancienne directrice de la chaîne du froid d'un groupe agro-industriel.">
+  <div class="k r">09 <i>L'équipe</i></div>
+  <h2 class="r" style="font-size:56px">Ceux qui ont <em>déjà construit</em> les deux premières.</h2>
+  <div class="team r">
+    <div><div class="av" style="background:#d9480f">CE</div><h3>Chantal Ekambi</h3><div class="role">CEO</div><p>8 ans chez un distributeur agroalimentaire, a géré 600 points de vente.</p></div>
+    <div><div class="av" style="background:#0b8ba3">YT</div><h3>Yannick Tchouta</h3><div class="role">CTO</div><p>Ingénieur froid et énergie solaire, ex-installateur de mini-réseaux.</p></div>
+    <div><div class="av" style="background:#6741d9">AB</div><h3>Aïssatou Bello</h3><div class="role">Opérations</div><p>Ancienne présidente d'une association de 900 vendeuses à Mboppi.</p></div>
+    <div><div class="av" style="background:#101418">+</div><h3>Nous recrutons</h3><div class="role">Responsable produit</div><p>Paiements mobiles, USSD, application gardien.</p></div>
+  </div>
+  <div class="lg"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#0b8ba3" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s" data-n="Projections prudentes : 80 % de remplissage, aucun revenu additionnel compté. Seuil de rentabilité opérationnelle mi-2028 avec 42 unités.">
+  <div class="k r">10 <i>Projections</i></div>
+  <h2 class="r" style="font-size:56px">De 2 à <em>140 unités</em> en 2029.</h2>
+  <svg class="chart r" id="ch2" viewBox="0 0 1380 420" role="img" aria-label="Unités installées et revenu annuel 2026 à 2029" style="margin-top:auto"></svg>
+  <div class="lg"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#0b8ba3" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s dk" data-n="650 k€ en BSA AIR, valorisation plafond 4 M€. Déjà 180 k€ engagés par un fonds d'impact et deux business angels. Clôture visée fin janvier.">
+  <div class="k r">11 <i>La levée</i></div>
+  <div class="ask r">650 k€</div>
+  <p class="lead r" style="margin-top:20px">pour installer 18 unités à Douala et Yaoundé et atteindre 1 M€ de revenu annualisé en 18 mois. Déjà <b style="color:#f3efe6">180 k€ engagés</b>.</p>
+  <div class="funds r"><div style="flex:55;background:#d9480f">55 %</div><div style="flex:20;background:#0b8ba3">20 %</div><div style="flex:15;background:#6741d9">15 %</div><div style="flex:10;background:#b08800">10 %</div></div>
+  <div class="fl r"><span><i style="background:#d9480f"></i>Fabrication de 18 unités<b>357 k€</b></span><span><i style="background:#0b8ba3"></i>Équipe et recrutements<b>130 k€</b></span><span><i style="background:#6741d9"></i>Logiciel et capteurs<b>98 k€</b></span><span><i style="background:#b08800"></i>Fonds de roulement<b>65 k€</b></span></div>
+  <div class="lg" style="color:#f3efe6"><svg viewBox="0 0 22 22"><path d="M11 3v16M4 7l14 8M18 7L4 15" stroke="#7cc6fe" stroke-width="2.2" stroke-linecap="round"/></svg>neva</div><div class="pg"></div>
+</section>
+
+<section class="s dk cover" data-n="Terminer sur la visite : proposer aux investisseurs de venir à Mboppi un mardi à 5 h du matin.">
+  <svg class="flake" viewBox="0 0 400 400" aria-hidden="true" style="opacity:.5"><g stroke="#7cc6fe" stroke-width="7" stroke-linecap="round" fill="none"><path d="M200 60v280M79 130l242 140M321 130L79 270"/></g></svg>
+  <div class="k r">Merci</div>
+  <h1 class="r" style="font-size:110px">Venez voir le froid<br>arriver au marché.</h1>
+  <div class="meta r"><span><b>Chantal Ekambi, CEO</b>chantal@neva.africa</span><span><b>Téléphone</b>+237 6 77 00 41 22</span><span><b>Data room</b>neva.africa/investir</span></div>
+</section>
+
+</div></div>
+<div class="grid" id="grid"></div>
+<div class="notes" id="notes"><h4><span>Notes · diapositive <b id="nn"></b></span><span id="tm">00:00</span></h4><p id="nt"></p><div class="clock" id="nx"></div></div>
+<div class="ui"><i id="prog"></i></div>
+<div class="nav"><button id="prev" aria-label="Précédente">←</button><button id="ovB">Vue d'ensemble</button><button id="ntB">Notes</button><button id="fsB">Plein écran</button><button id="pdfB">PDF</button><button id="next" aria-label="Suivante">→</button></div>
+<script>
+const $=s=>document.querySelector(s),S=[...document.querySelectorAll('#deck>.s')];let cur=0;
+S.forEach((s,i)=>{const p=s.querySelector('.pg');if(p)p.textContent=String(i+1).padStart(2,'0')+' / '+S.length});
+function go(i){cur=Math.max(0,Math.min(S.length-1,i));S.forEach((s,j)=>s.classList.toggle('on',j===cur));$('#prog').style.width=(cur+1)/S.length*100+'%';$('#nn').textContent=cur+1;$('#nt').textContent=S[cur].dataset.n||'';
+  const nx=S[cur+1];$('#nx').textContent=nx?'Ensuite : '+(nx.querySelector('.k')?.textContent.replace(/^\d+\s*/,'')||''):'Fin';history.replaceState(null,'','#'+(cur+1))}
+function fit(){const k=Math.min(innerWidth/1600,innerHeight/900);$('#deck').style.transform=`scale(${k})`}
+addEventListener('resize',fit);
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(cur+1)}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key))go(cur-1);else if(e.key==='Home')go(0);else if(e.key==='End')go(S.length-1);else if(/^o$/i.test(e.key))ov();else if(/^n$/i.test(e.key))$('#notes').classList.toggle('on');else if(/^f$/i.test(e.key))fs();else if(e.key==='Escape')document.body.classList.remove('ov')});
+let tx=null;addEventListener('touchstart',e=>tx=e.touches[0].clientX);addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>40)go(cur+(d<0?1:-1));tx=null});
+$('.stage').addEventListener('click',e=>{if(e.target.closest('a,button'))return;go(cur+(e.clientX>innerWidth/3?1:-1))});
+$('#prev').onclick=()=>go(cur-1);$('#next').onclick=()=>go(cur+1);$('#ntB').onclick=()=>$('#notes').classList.toggle('on');$('#pdfB').onclick=()=>print();
+const fs=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();$('#fsB').onclick=fs;
+function ov(){const on=document.body.classList.toggle('ov');if(!on)return;const g=$('#grid');g.innerHTML='';const w=Math.max(300,(Math.min(innerWidth,1800)-120)/4);
+  S.forEach((s,i)=>{const b=document.createElement('button');b.className=i===cur?'cur':'';b.innerHTML=`<div class="th"><div></div></div>${String(i+1).padStart(2,'0')} · ${(s.querySelector('.k')?.textContent||'').replace(/^\d+\s*/,'')}`;const c=s.cloneNode(true);c.classList.add('on');b.querySelector('.th>div').appendChild(c);b.onclick=()=>{go(i);document.body.classList.remove('ov')};g.appendChild(b)});
+  requestAnimationFrame(()=>g.querySelectorAll('.th').forEach(t=>t.firstChild.style.transform=`scale(${t.clientWidth/1600})`))}
+$('#ovB').onclick=ov;
+let t0=Date.now();setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);$('#tm').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000);
+// ——— Graphiques (une seule série par graphique, valeurs annotées) ———
+(function(){const d=[['mars',.6],['avr.',1.1],['mai',1.5],['juin',1.7],['juil.',2.6],['août',3.4],['sept.',3.9],['oct.',4.4]],W=900,H=380,b=330,max=5,bw=70,gap=(W-40-d.length*bw)/(d.length-1);
+  let o=[1,2,3,4].map(v=>`<line x1="0" x2="${W}" y1="${b-v/max*290}" y2="${b-v/max*290}" stroke="#ddd7ca" stroke-dasharray="3 6"/>`).join('');
+  d.forEach(([m,v],i)=>{const x=20+i*(bw+gap),h=v/max*290;o+=`<path d="M${x} ${b}V${b-h+4}a4 4 0 0 1 4-4h${bw-8}a4 4 0 0 1 4 4V${b}Z" fill="${i<4?'#e8b9a3':'#d9480f'}"><title>${m} : ${String(v).replace('.',',')} M F CFA</title></path><text x="${x+bw/2}" y="${b+30}" text-anchor="middle">${m}</text>`;if(i===0||i===3||i===d.length-1)o+=`<text class="vl" x="${x+bw/2}" y="${b-h-12}" text-anchor="middle">${String(v).replace('.',',')} M</text>`});
+  o+=`<line x1="0" x2="${W}" y1="${b}" y2="${b}" stroke="#101418" stroke-width="1.5"/><text x="${20+4*(bw+gap)}" y="22" style="fill:#d9480f;font-weight:600">2ᵉ unité installée →</text><text x="0" y="22">Revenu mensuel, millions de F CFA</text>`;
+  $('#ch1').innerHTML=o})();
+(function(){const d=[['2026',2,.02],['2027',18,.19],['2028',62,.68],['2029',140,1.6]],W=1380,b=360,colW=W/4;
+  let o=`<line x1="0" x2="${W}" y1="${b}" y2="${b}" stroke="#101418" stroke-width="1.5"/>`;
+  d.forEach(([y,u,r],i)=>{const x=i*colW+40,h=u/140*300;o+=`<path d="M${x} ${b}V${b-h+4}a4 4 0 0 1 4-4h${colW-128}a4 4 0 0 1 4 4V${b}Z" fill="${i===d.length-1?'#d9480f':'#0b8ba3'}"><title>${y} : ${u} unités, ${String(r).replace('.',',')} M€</title></path><text x="${x}" y="${b+34}" style="font-weight:600;fill:#101418">${y}</text><text class="vl" x="${x}" y="${b-h-40}" style="font:500 34px Unbounded">${u} unités</text><text x="${x}" y="${b-h-12}">revenu ${r<.1?Math.round(r*1000)+' k€':String(r).replace('.',',')+' M€'}</text>`});
+  $('#ch2').innerHTML=o})();
+setTimeout(()=>$('#help').classList.add('off'),3500);fit();go(Math.max(0,(parseInt(location.hash.slice(1))||1)-1));
+</script>
+</body>
+</html>

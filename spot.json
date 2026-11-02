@@ -1,0 +1,77 @@
+{
+ "titre": "<em>Neva</em>, pitch deck investisseurs",
+ "type": "Pitch deck · présentation",
+ "sous_titre": "Récit, chiffres, graphiques, mode présentateur, export PDF",
+ "couleur": "#101418",
+ "graine": 13,
+ "voix": [
+  [
+   3.3,
+   "Neva, un pitch deck pour une levée d'amorçage,"
+  ],
+  [
+   8.4,
+   "le problème, la solution, le marché, la traction, chaque chiffre raconte l'histoire,"
+  ],
+  [
+   17.2,
+   "vue d'ensemble, notes du présentateur, et export PDF pour la data room."
+  ]
+ ],
+ "etapes": [
+  {
+   "t": "wait",
+   "ms": 1300
+  },
+  {
+   "t": "eval",
+   "js": "go(1)",
+   "pause": 1500
+  },
+  {
+   "t": "eval",
+   "js": "go(2)",
+   "pause": 1500
+  },
+  {
+   "t": "eval",
+   "js": "go(3)",
+   "pause": 1200
+  },
+  {
+   "t": "eval",
+   "js": "go(5)",
+   "pause": 1500
+  },
+  {
+   "t": "eval",
+   "js": "go(6)",
+   "pause": 1700
+  },
+  {
+   "t": "eval",
+   "js": "go(8)",
+   "pause": 1400
+  },
+  {
+   "t": "eval",
+   "js": "go(10)",
+   "pause": 1600
+  },
+  {
+   "t": "eval",
+   "js": "go(11)",
+   "pause": 1700
+  },
+  {
+   "t": "eval",
+   "js": "ov()",
+   "pause": 2000
+  },
+  {
+   "t": "eval",
+   "js": "document.body.classList.remove('ov');go(6);document.querySelector('#notes').classList.add('on')",
+   "pause": 2200
+  }
+ ]
+}
